@@ -11,9 +11,6 @@ public class main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		/*Connection conn = ConnectionMySQL.getConnection();
-		ConnectionMySQL.closeConnection();*/
-		
 		serasa:
 		while(true) {
 			System.out.println("-------------------------------------");
@@ -65,6 +62,10 @@ public class main {
 		System.out.println("Informe o id do jogo a ser deletado: ");
 		int id = sc.nextInt();
 		
+		JogoDAO j = new JogoDAO();
+		j.deletarJogo(id);
+		
+		System.out.println();
 	}
 
 	private static void editarJogo(Scanner sc) {

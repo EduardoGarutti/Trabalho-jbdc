@@ -52,13 +52,13 @@ public class JogoDAO implements JogoJBDC {
 		}
 	}
 	
-	public void deletarJogo(Jogo jogo) {
+	public void deletarJogo(int id) {
 		try {
 			Connection conn = ConnectionMySQL.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sqlDelete);
-			stmt.setInt(1, jogo.getId());
+			stmt.setInt(1, id);
 			stmt.execute();
-			System.out.println("Jogo excluído com sucesso");
+			System.out.println("Jogo excluído com sucesso!");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
