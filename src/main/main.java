@@ -1,6 +1,10 @@
 package main;
 
+import java.util.List;
 import java.util.Scanner;
+
+import dao.JogoDAO;
+import model.Jogo;
 
 public class main {
 
@@ -28,41 +32,50 @@ public class main {
 				jogosCadastrados();
 				break;
 			case 2:
-				cadastrarJogo();
+				cadastrarJogo(sc);
 				break;
 			case 3:
-				editarJogo();
+				editarJogo(sc);
 				break;
 			case 4:
-				deletarJogo();
+				deletarJogo(sc);
 				break;
 			case 5:
 				System.out.println("Encerrando o programa...");
 				break serasa;
 			default:
-				System.out.println("Opção Invalida!\n\n\n");
+				System.out.println("Opção Invalida!\n\n");
 				break;
 			}
 		}
 	}
-
-	private static void deletarJogo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void editarJogo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void cadastrarJogo() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	private static void jogosCadastrados() {
+		JogoDAO j = new JogoDAO();
+		List <Jogo> lista = j.selecionarJogos();
+		
+		System.out.println("\n");
+		for(Jogo a : lista) {
+			System.out.println(a);
+		}
+		System.out.println("\n\n");
+	}
+
+	private static void deletarJogo(Scanner sc) {
+		System.out.println("Informe o id do jogo a ser deletado: ");
+		int id = sc.nextInt();
+		
+	}
+
+	private static void editarJogo(Scanner sc) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	private static void cadastrarJogo(Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

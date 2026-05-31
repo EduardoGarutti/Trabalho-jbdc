@@ -8,3 +8,5 @@ Create table jogo (
     ano_lancamento int not null,
     nota_avaliacao decimal(3,1)
 );
+
+USE SerasaGames;

@@ -74,10 +74,10 @@ public class Jogo {
 	@Override
 	public String toString() {
 		return "Jogo ID " + this.id + 
-				"\nTítulo: " + this.titulo + 
-				"\nGênero: " + this.genero +
-				"\nPlataforma: " + this.plataforma +
-				"\nAno de Lançamento: " + this.ano_lancamento +
-				"\nNota de Avaliação: " + this.nota_avaliacao;
+				" | Título: " + this.titulo + 
+				" | Gênero: " + this.genero +
+				" | Plataforma: " + this.plataforma +
+				" | Ano de Lançamento: " + this.ano_lancamento +
+				" | Nota de Avaliação: " + this.nota_avaliacao;
 	}
 }

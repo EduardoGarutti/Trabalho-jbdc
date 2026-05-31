@@ -11,14 +11,14 @@ import model.Jogo;
 
 public class JogoDAO implements JogoJBDC {
 
-	private static final String sqlInsert = "INSERT INTO Jogo "
+	private static final String sqlInsert = "INSERT INTO jogo "
 			+ "(titulo, genero, plataforma, ano_lancamento, nota_avaliacao) "
 			+ "VALUES (?, ?, ?, ?, ?)";
-	private static final String sqlUpdate = "UPDATE Jogo SET "
+	private static final String sqlUpdate = "UPDATE jogo SET "
 			+ "titulo = ?, genero = ?, plataforma = ?, ano_lancamento = ?, nota_avaliacao = ?"
 			+ "  WHERE id = ?";
-	private static final String sqlDelete = "DELETE FROM Jogo WHERE id = ?";
-	private static final String sqlSelect = "SELECT * FROM Jogo";
+	private static final String sqlDelete = "DELETE FROM jogo WHERE id = ?";
+	private static final String sqlSelect = "SELECT * FROM jogo";
 	
 	public void inserirJogo(Jogo jogo) {
 		try {
@@ -52,7 +52,7 @@ public class JogoDAO implements JogoJBDC {
 		}
 	}
 	
-	public void excluirJogo(Jogo jogo) {
+	public void deletarJogo(Jogo jogo) {
 		try {
 			Connection conn = ConnectionMySQL.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sqlDelete);
