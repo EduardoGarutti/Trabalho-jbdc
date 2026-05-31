@@ -32,7 +32,7 @@ public class main {
 				cadastrarJogo(sc);
 				break;
 			case 3:
-				editarJogo(sc);
+				alterarJogo(sc);
 				break;
 			case 4:
 				deletarJogo(sc);
@@ -68,8 +68,33 @@ public class main {
 		System.out.println();
 	}
 
-	private static void editarJogo(Scanner sc) {
-		// TODO Auto-generated method stub
+	private static void alterarJogo(Scanner sc) {
+		System.out.println("Informe o id do jogo a ser alterado: ");
+		int id = sc.nextInt();
+		
+		JogoDAO j = new JogoDAO();
+		Jogo jogo = new Jogo();
+		jogo.setId(id);
+		
+		sc.nextLine();
+		System.out.println("informe titulo do jogo: ");
+		jogo.setTitulo(sc.nextLine());
+		
+		System.out.println("Informe genero: ");
+		jogo.setGenero(sc.nextLine());
+		
+		System.out.println("Informe plataforma: ");
+		jogo.setPlataforma(sc.nextLine());
+		
+		System.out.println("Informe ano de lançamento: ");
+		jogo.setAno_lancamento(sc.nextInt());
+		
+		System.out.println("informe nota de avaliação: ");
+		jogo.setNota_avaliacao(sc.nextFloat());
+		
+		j.alterarJogo(jogo);
+		
+		System.out.println();
 		
 	}
 

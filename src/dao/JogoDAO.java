@@ -45,8 +45,9 @@ public class JogoDAO implements JogoJBDC {
 			stmt.setString(3, jogo.getPlataforma());
 			stmt.setInt(4, jogo.getAno_lancamento());
 			stmt.setFloat(5, jogo.getNota_avaliacao());
+			stmt.setInt(6, jogo.getId());
 			stmt.execute();
-			System.out.println("Jogo alterado com sucesso");
+			System.out.println("Jogo alterado com sucesso!");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
