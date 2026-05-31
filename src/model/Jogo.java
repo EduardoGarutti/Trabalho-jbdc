@@ -35,7 +35,7 @@ public class Jogo {
 		return titulo;
 	}
 	
-	public void setTitulo(String titulo) {to
+	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 	
