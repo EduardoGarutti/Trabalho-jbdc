@@ -67,7 +67,7 @@ public class Jogo {
 		return nota_avaliacao;
 	}
 	
-	public void setnota_avaliacao(float nota_avaliacao) {
+	public void setNota_avaliacao(float nota_avaliacao) {
 		this.nota_avaliacao = nota_avaliacao;
 	}
 	
