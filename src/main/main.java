@@ -99,8 +99,28 @@ public class main {
 	}
 
 	private static void cadastrarJogo(Scanner sc) {
-		// TODO Auto-generated method stub
+		JogoDAO j = new JogoDAO();
+		Jogo jogo = new Jogo();
 		
+		sc.nextLine();
+		System.out.println("informe titulo do jogo: ");
+		jogo.setTitulo(sc.nextLine());
+		
+		System.out.println("Informe genero: ");
+		jogo.setGenero(sc.nextLine());
+		
+		System.out.println("Informe plataforma: ");
+		jogo.setPlataforma(sc.nextLine());
+		
+		System.out.println("Informe ano de lançamento: ");
+		jogo.setAno_lancamento(sc.nextInt());
+		
+		System.out.println("informe nota de avaliação: ");
+		jogo.setNota_avaliacao(sc.nextFloat());
+		
+		j.inserirJogo(jogo);
+		
+		System.out.println();
 	}
 
 

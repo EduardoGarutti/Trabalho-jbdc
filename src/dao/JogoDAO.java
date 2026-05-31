@@ -46,8 +46,14 @@ public class JogoDAO implements JogoJBDC {
 			stmt.setInt(4, jogo.getAno_lancamento());
 			stmt.setFloat(5, jogo.getNota_avaliacao());
 			stmt.setInt(6, jogo.getId());
-			stmt.execute();
-			System.out.println("Jogo alterado com sucesso!");
+			
+			int deuCerto = stmt.executeUpdate();
+			
+			if(deuCerto > 0) {
+				System.out.println("Jogo excluido com sucesso!");
+			} else {
+				System.out.println("Não existe nenhum jogo com esse ID!");
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -58,8 +64,13 @@ public class JogoDAO implements JogoJBDC {
 			Connection conn = ConnectionMySQL.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sqlDelete);
 			stmt.setInt(1, id);
-			stmt.execute();
-			System.out.println("Jogo excluído com sucesso!");
+			int deuCerto = stmt.executeUpdate();
+			
+			if(deuCerto > 0) {
+				System.out.println("Jogo excluido com sucesso!");
+			} else {
+				System.out.println("Não existe nenhum jogo com esse ID!");
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
