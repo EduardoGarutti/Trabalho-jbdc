@@ -20,6 +20,7 @@ public class JogoDAO implements JogoJDBC {
 	private static final String sqlDelete = "DELETE FROM jogo WHERE id = ?";
 	private static final String sqlSelect = "SELECT * FROM jogo";
 	
+	@Override
 	public void inserirJogo(Jogo jogo) {
 		try {
 			Connection conn = ConnectionMySQL.getConnection();
@@ -36,6 +37,7 @@ public class JogoDAO implements JogoJDBC {
 		}
 	}
 	
+	@Override
 	public void alterarJogo(Jogo jogo) {
 		try {
 			Connection conn = ConnectionMySQL.getConnection();
@@ -59,6 +61,7 @@ public class JogoDAO implements JogoJDBC {
 		}
 	}
 	
+	@Override
 	public void deletarJogo(int id) {
 		try {
 			Connection conn = ConnectionMySQL.getConnection();
@@ -76,6 +79,7 @@ public class JogoDAO implements JogoJDBC {
 		}
 	}
 	
+	@Override
 	public List<Jogo> selecionarJogos(){
 		List<Jogo> j_list = new ArrayList<Jogo>();
 		try {
