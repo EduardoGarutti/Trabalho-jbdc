@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import dao.JogoDAO;
+import dao.interfaces.JogoJDBC;
+import model.EntidadeCatalogo;
 import model.Jogo;
 
 public class main {
@@ -61,21 +63,25 @@ public class main {
 	}
 	
 	private static void jogosCadastrados() {
-		JogoDAO j = new JogoDAO();
+		JogoJDBC j = new JogoDAO();
 		List <Jogo> lista = j.selecionarJogos();
 		
 		System.out.println("\n");
-		for(Jogo a : lista) {
+		imprimirCadastros(lista);
+		System.out.println("\n\n");
+	}
+
+	private static void imprimirCadastros(List<? extends EntidadeCatalogo> lista) {
+		for(EntidadeCatalogo a : lista) {
 			System.out.println(a);
 		}
-		System.out.println("\n\n");
 	}
 
 	private static void deletarJogo(Scanner sc) {
 		System.out.println("Informe o id do jogo a ser deletado: ");
 		int id = sc.nextInt();
 		
-		JogoDAO j = new JogoDAO();
+		JogoJDBC j = new JogoDAO();
 		j.deletarJogo(id);
 		
 		System.out.println();
@@ -85,7 +91,7 @@ public class main {
 		System.out.println("Informe o id do jogo a ser alterado: ");
 		int id = sc.nextInt();
 		
-		JogoDAO j = new JogoDAO();
+		JogoJDBC j = new JogoDAO();
 		Jogo jogo = new Jogo();
 		jogo.setId(id);
 		
@@ -131,7 +137,7 @@ public class main {
 		
 		Jogo jogo = new Jogo(null, titulo, genero , plataforma, ano_lancamento, nota_avaliacao);
 		
-		JogoDAO jogoDao = new JogoDAO();
+		JogoJDBC jogoDao = new JogoDAO();
 		jogoDao.inserirJogo(jogo);
 		
 		System.out.println();

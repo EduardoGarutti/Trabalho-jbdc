@@ -1,8 +1,7 @@
 package model;
 
-public class Jogo {
+public class Jogo extends EntidadeCatalogo {
 
-	private Integer id;
 	private String titulo;
 	private String genero;
 	private String plataforma;
@@ -14,7 +13,7 @@ public class Jogo {
 	}
 	
 	public Jogo(Integer id, String titulo, String genero, String plataforma, int ano_lancamento, float nota_avaliacao) {
-		this.id = id;
+		setId(id);
 		this.titulo = titulo;
 		this.genero = genero;
 		this.plataforma = plataforma;
@@ -22,14 +21,6 @@ public class Jogo {
 		this.nota_avaliacao = nota_avaliacao;
 	}
 
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -69,10 +60,15 @@ public class Jogo {
 	public void setNota_avaliacao(float nota_avaliacao) {
 		this.nota_avaliacao = nota_avaliacao;
 	}
+
+	@Override
+	public String getTipo() {
+		return "Jogo";
+	}
 	
 	@Override
 	public String toString() {
-		return "Jogo ID " + this.id + 
+		return getTipo() + " ID " + getId() + 
 				" | Título: " + this.titulo + 
 				" | Gênero: " + this.genero +
 				" | Plataforma: " + this.plataforma +
