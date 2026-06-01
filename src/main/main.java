@@ -7,15 +7,28 @@ import dao.JogoDAO;
 import model.Jogo;
 
 public class main {
+	
+	public static final String RESET = "\u001B[0m";
+    public static final String VERDE = "\u001B[32m";
+    public static final String AMARELO = "\u001B[33m";
+    public static final String AZUL = "\u001B[34m";
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
 		serasa:
 		while(true) {
-			System.out.println("-------------------------------------");
-			System.out.println("-------------SERASA GAMES------------");
-			System.out.println("-------------------------------------\n");
+			System.out.println(AZUL + 
+					"+++++++++++++++++++++++++++++++++++++++++++++++++++");
+			System.out.println(VERDE + 
+					"===================================================");
+			System.out.println(AMARELO + 
+					"|              S E R A S A   G A M E S            |");
+			System.out.println(VERDE + 
+			         "===================================================");
+			System.out.println(AZUL + 
+					"+++++++++++++++++++++++++++++++++++++++++++++++++++" + 
+					RESET);
 			
 			System.out.println("[1]-Jogos cadastrados");
 			System.out.println("[2]-Cadastrar novo jogo");
@@ -99,26 +112,27 @@ public class main {
 	}
 
 	private static void cadastrarJogo(Scanner sc) {
-		JogoDAO j = new JogoDAO();
-		Jogo jogo = new Jogo();
 		
 		sc.nextLine();
 		System.out.println("informe titulo do jogo: ");
-		jogo.setTitulo(sc.nextLine());
+		String titulo = sc.nextLine();
 		
 		System.out.println("Informe genero: ");
-		jogo.setGenero(sc.nextLine());
+		String genero = sc.nextLine();
 		
 		System.out.println("Informe plataforma: ");
-		jogo.setPlataforma(sc.nextLine());
+		String plataforma = sc.nextLine();
 		
 		System.out.println("Informe ano de lançamento: ");
-		jogo.setAno_lancamento(sc.nextInt());
+		int ano_lancamento = sc.nextInt();
 		
 		System.out.println("informe nota de avaliação: ");
-		jogo.setNota_avaliacao(sc.nextFloat());
+		float nota_avaliacao = sc.nextFloat();
 		
-		j.inserirJogo(jogo);
+		Jogo jogo = new Jogo(null, titulo, genero , plataforma, ano_lancamento, nota_avaliacao);
+		
+		JogoDAO jogoDao = new JogoDAO();
+		jogoDao.inserirJogo(jogo);
 		
 		System.out.println();
 	}

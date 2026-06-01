@@ -2,7 +2,7 @@ package model;
 
 public class Jogo {
 
-	private int id;
+	private Integer id;
 	private String titulo;
 	private String genero;
 	private String plataforma;
@@ -13,8 +13,7 @@ public class Jogo {
 		
 	}
 	
-	public Jogo(int id, String titulo, String genero, String plataforma, int ano_lancamento, float nota_avaliacao) {
-		super();
+	public Jogo(Integer id, String titulo, String genero, String plataforma, int ano_lancamento, float nota_avaliacao) {
 		this.id = id;
 		this.titulo = titulo;
 		this.genero = genero;
@@ -27,7 +26,7 @@ public class Jogo {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	

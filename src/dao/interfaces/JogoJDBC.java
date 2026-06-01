@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.Jogo;
 
-public interface JogoJBDC {
+public interface JogoJDBC {
 	void inserirJogo (Jogo jogo);
 	void alterarJogo (Jogo jogo);
 	void deletarJogo (int id);

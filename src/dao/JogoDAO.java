@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.interfaces.JogoJBDC;
+import dao.interfaces.JogoJDBC;
 import model.Jogo;
 
-public class JogoDAO implements JogoJBDC {
+public class JogoDAO implements JogoJDBC {
 
 	private static final String sqlInsert = "INSERT INTO jogo "
 			+ "(titulo, genero, plataforma, ano_lancamento, nota_avaliacao) "
@@ -50,7 +50,7 @@ public class JogoDAO implements JogoJBDC {
 			int deuCerto = stmt.executeUpdate();
 			
 			if(deuCerto > 0) {
-				System.out.println("Jogo excluido com sucesso!");
+				System.out.println("Jogo alterado com sucesso!");
 			} else {
 				System.out.println("Não existe nenhum jogo com esse ID!");
 			}
@@ -83,16 +83,15 @@ public class JogoDAO implements JogoJBDC {
 			PreparedStatement stmt = conn.prepareStatement(sqlSelect);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				Jogo c = new Jogo();
-				c.setId(rs.getInt(1));
-				c.setTitulo(rs.getString(2));
-				c.setGenero(rs.getString(3));
-				c.setPlataforma(rs.getString(4));
-				c.setAno_lancamento(rs.getInt(5));
-				c.setNota_avaliacao(rs.getFloat(6));
-				j_list.add(c);
+				Jogo j = new Jogo();
+				j.setId(rs.getInt(1));
+				j.setTitulo(rs.getString(2));
+				j.setGenero(rs.getString(3));
+				j.setPlataforma(rs.getString(4));
+				j.setAno_lancamento(rs.getInt(5));
+				j.setNota_avaliacao(rs.getFloat(6));
+				j_list.add(j);
 			}
-			System.out.println("Jogos recuperados com sucesso");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

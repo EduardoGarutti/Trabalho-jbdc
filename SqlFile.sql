@@ -1,6 +1,6 @@
 create database SerasaGames;
 
-USE SerasaGames;
+use SerasaGames;
 
 Create table jogo (
 	id int auto_increment primary key,
@@ -10,5 +10,4 @@ Create table jogo (
     ano_lancamento int not null,
     nota_avaliacao decimal(3,1)
 );
-
 
